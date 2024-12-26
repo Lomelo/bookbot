@@ -3,7 +3,7 @@ def main():
     contents = book_content(book_path)
     count = word_count(contents)
     total_characters = character_count(contents)
-    print(total_characters)
+    print(report(book_path, count, contents))
 
 def book_content(path):
     with open(path) as f:
@@ -26,7 +26,13 @@ def character_count(contents):
         total += letter_count[i]
     return total
 
-    
+def grab_dict_number(dictionary):
+    return dictionary["p"]
+
+def report(path, word_count, contents):
+    headline = f"Begin report of {path}"
+    provide_word_total = f"{word_count} words found in the document"
+    return headline, provide_word_total
 
 
 
